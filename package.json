@@ -1,0 +1,25 @@
+{
+    "name": "exec-sync",
+    "version": "0.1.0",
+    "description": "Execute shell command synchronously. Use this for migration scripts, cli programs, but not for regular server code.",
+    "keywords": [
+    "exec",
+    "sync",
+    "synchronously",
+    "synchronous",
+    "shell"
+    ],
+    "author": "Jeremy Faivre <contact@jeremyfa.com>",
+    "main": "./bin/index.js",
+    "dependencies": {
+        "node-ffi": ">=0.5.0"
+    },
+    "devDependencies": {
+        "coffee-script": ">=1.2.0",
+        "findit": ">=0.1.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/jeremyfa/node-exec-sync.git"
+    }
+}
