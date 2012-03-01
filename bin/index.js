@@ -1,6 +1,19 @@
 (function() {
   var FFI, fs, libc, uniqId, uniqIdK;
 
+    function _getTMPDir() {
+      var tmpNames = [ 'TMPDIR', 'TMP', 'TEMP' ];
+
+      for (var i = 0, length = tmpNames.length; i < length; i++) {
+        if ( typeof process.env[tmpNames[i]] === 'undefined') continue;
+
+        return process.env[tmpNames[i]];
+      }
+
+      // fallback to the default
+      return '/tmp';
+    }
+
   FFI = require("node-ffi");
 
   libc = new FFI.Library(null, {
@@ -19,10 +32,10 @@
   module.exports = function(cmd) {
     var result, tmp;
     tmp = uniqId() + '.tmp';
-    cmd = "" + cmd + " > " + __dirname + "/" + tmp;
+    cmd = "" + cmd + " > " + _getTMPDir() + "/" + tmp;
     libc.system(cmd);
-    result = fs.readFileSync("" + __dirname + "/" + tmp);
-    fs.unlinkSync("" + __dirname + "/" + tmp);
+    result = fs.readFileSync("" + _getTMPDir() + "/" + tmp);
+    fs.unlinkSync("" + _getTMPDir() + "/" + tmp);
     result = "" + result;
     if (result.charAt(result.length - 1) === "\n") {
       result = result.substr(0, result.length - 1);
