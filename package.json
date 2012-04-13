@@ -1,6 +1,6 @@
 {
     "name": "exec-sync",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Execute shell command synchronously. Use this for migration scripts, cli programs, but not for regular server code.",
     "keywords": [
     "exec",

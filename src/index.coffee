@@ -6,7 +6,7 @@ fs = require "fs"
 # Generate a pseudo-unique identifier
 uniqIdK = 0
 uniqId = ->
-    prefix ?= 'tmp'
+    prefix = 'tmp'
     prefix + (new Date()).getTime() + '' + (uniqIdK++) + ('' + Math.random()).split('.').join('')
 
 # Retrieve temporary writable directory

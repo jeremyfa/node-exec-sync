@@ -12,7 +12,8 @@
   uniqIdK = 0;
 
   uniqId = function() {
-    if (typeof prefix === "undefined" || prefix === null) prefix = 'tmp';
+    var prefix;
+    prefix = 'tmp';
     return prefix + (new Date()).getTime() + '' + (uniqIdK++) + ('' + Math.random()).split('.').join('');
   };
 
