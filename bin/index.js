@@ -1,7 +1,7 @@
 (function() {
   var FFI, fs, libc, tmpDir, uniqId, uniqIdK;
 
-  FFI = require("node-ffi");
+  FFI = require("ffi");
 
   libc = new FFI.Library(null, {
     "system": ["int32", ["string"]]
