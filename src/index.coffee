@@ -1,5 +1,5 @@
 
-FFI = require "node-ffi"
+FFI = require "ffi"
 libc = new FFI.Library null, "system": ["int32", ["string"]]
 fs = require "fs"
 
