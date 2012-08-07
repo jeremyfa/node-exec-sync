@@ -27,9 +27,6 @@ console.log(user);
 
 By default, an Error is thrown if stderr is not empty. Alternatively, the function can return an object with both `stdout` and `stderr` as properties by passing `true` as a second argument (`returnOutAndErr`).
 
-### TODO
-
-Throw error when something went wrong.
 
 ## License 
 
