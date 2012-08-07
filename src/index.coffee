@@ -18,14 +18,26 @@ tmpDir = ->
             return dir
     return '/tmp' # Fallback to the default
 
+getOutput = (path) ->
+    output = fs.readFileSync path
+    fs.unlinkSync path
+    output = "#{output}"
+    if output.charAt(output.length-1) is "\n" then output = output.substr(0,output.length-1)
+    return output
+
 # execSync implementation
-module.exports = (cmd) ->
-    tmp = uniqId()+'.tmp'
+module.exports = (cmd, returnOutAndErr = false) ->
+    id = uniqId()
+    stdout = id+'.stdout'
+    stderr = id+'.stderr'
     dir = tmpDir()
-    cmd = "#{cmd} > #{dir}/#{tmp}"
+    cmd = "#{cmd} > #{dir}/#{stdout} 2> #{dir}/#{stderr}"
     libc.system cmd
-    result = fs.readFileSync "#{dir}/#{tmp}"
-    fs.unlinkSync "#{dir}/#{tmp}"
-    result = "#{result}"
-    if result.charAt(result.length-1) is "\n" then result = result.substr(0,result.length-1)
-    return result
+    result = getOutput "#{dir}/#{stdout}"
+    error = getOutput "#{dir}/#{stderr}"
+    if (returnOutAndErr)
+        return { stdout: result, stderr: error }
+    else
+        if error != ''
+            throw new Error(error)
+        return result
