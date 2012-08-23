@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/jeremyfa/node-exec-sync.png)](http://travis-ci.org/jeremyfa/node-exec-sync)
 # exec-sync
 
 Execute shell command synchronously. Use this for migration scripts, cli programs, but not for regular server code.
