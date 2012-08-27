@@ -14,6 +14,7 @@ $ curl http://npmjs.org/install.sh | sh
 $ cd /path/to/your/project
 $ [sudo] npm install exec-sync
 ```
+Warning: Only the 32-bit version of Node.js (node-v0.x.y-x86) is supported under Windows.
 
 ### Using exec-sync from node.js
 Warning: use only for special operation or command line scripts written with node. Don't use this for regular server code or it will ruin the responsiveness of your server.
