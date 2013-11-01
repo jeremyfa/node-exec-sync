@@ -1,3 +1,4 @@
+# IMPORTANT: This repository is no longer maintained. For the same feature, use this instead: https://github.com/mgutz/execSync
 # exec-sync
 
 Execute shell command synchronously. Use this for migration scripts, cli programs, but not for regular server code.
