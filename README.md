@@ -1,4 +1,6 @@
-### IMPORTANT: This repository is no longer maintained. For the same feature, use this instead: https://github.com/mgutz/execSync
+### IMPORTANT: This repository is no longer maintained.
+
+The same feature is now built-in with node v0.12: https://nodejs.org/api/child_process.html#child_process_child_process_execsync_command_options
 
 # exec-sync
 
